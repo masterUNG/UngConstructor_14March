@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ungconstructor14march/utility/my_style.dart';
+import 'package:ungconstructor14march/widget/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -15,7 +16,15 @@ class _AuthenState extends State<Authen> {
     return Container(
       width: 250.0,
       child: FlatButton(
-        onPressed: () {},
+        onPressed: () {
+          print('You Click Register');
+
+          MaterialPageRoute route =
+              MaterialPageRoute(builder: (BuildContext context) {
+            return Register();
+          });
+          Navigator.of(context).push(route);
+        },
         child: Text(
           'New Register',
           style: TextStyle(
@@ -30,11 +39,15 @@ class _AuthenState extends State<Authen> {
   Widget loginButton() {
     return Container(
       width: 250.0,
-      child: RaisedButton(color: MyStyle().primaryColor,
+      child: RaisedButton(
+        color: MyStyle().primaryColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
-        child: Text('Login', style: TextStyle(color: Colors.white),),
+        child: Text(
+          'Login',
+          style: TextStyle(color: Colors.white),
+        ),
         onPressed: () {},
       ),
     );
@@ -114,25 +127,28 @@ class _AuthenState extends State<Authen> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: RadialGradient(radius: 1.3,
+          gradient: RadialGradient(
+            radius: 1.3,
             colors: <Color>[Colors.white, MyStyle().primaryColor],
           ),
         ),
         child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              showLogo(),
-              mySizeBox(),
-              showAppName(),
-              mySizeBox(),
-              userForm(),
-              mySizeBox(),
-              passwordForm(),
-              mySizeBox(),
-              loginButton(),
-              registerButton(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                showLogo(),
+                mySizeBox(),
+                showAppName(),
+                mySizeBox(),
+                userForm(),
+                mySizeBox(),
+                passwordForm(),
+                mySizeBox(),
+                loginButton(),
+                registerButton(),
+              ],
+            ),
           ),
         ),
       ),
