@@ -250,10 +250,14 @@ class _RegisterState extends State<Register> {
             password == null ||
             password.isEmpty) {
           normalDialog(context, 'Have Space', 'Please Fill Every Blank');
-        } else {}
+        } else {
+          authenThread();
+        }
       },
     );
   }
+
+  Future<void> authenThread()async{}
 
   @override
   Widget build(BuildContext context) {
